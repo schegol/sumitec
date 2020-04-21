@@ -1,23 +1,456 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title></title>
+  <title>Sumitec — официальный дистрибьютор техники KOMATSU</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700,900&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/css/slick.css">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
   <header class="header">
-    
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="company-info company-info--header">
+          <div class="company-info__company">
+            <img class="company-info__company-logo" src="img/header-logo.png" alt="Логотип Sumitec">
+            <p class="company-info__company-slogan">
+              Официальный дистрибьютор техники KOMATSU в Санкт-Петербурге
+            </p>
+          </div>
+          <div class="company-info__contacts">
+            <div class="company-info__contacts-info">
+              <a class="company-info__contacts-phone company-info__contacts-phone--active" href="tel:+74957972848" data-office="1">
+                +7(495) <span class="company-info__phone-accent">797-28-48</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+79210300292" data-office="2">
+                +7(921) <span class="company-info__phone-accent">030-02-92</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+78182657983" data-office="3">
+                +7(8182) <span class="company-info__phone-accent">65-79-83</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+79217171964" data-office="4">
+                +7(921) <span class="company-info__phone-accent">717-19-64</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+79113020250" data-office="5">
+                +7(911) <span class="company-info__phone-accent">302-02-50</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+79210701501" data-office="6">
+                +7(921) <span class="company-info__phone-accent">070-15-01</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+78145933636" data-office="7">
+                +7(81459) <span class="company-info__phone-accent">3-36-36</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+78126220910" data-office="8">
+                +7(812) <span class="company-info__phone-accent">622-09-10, доб. 2423</span>
+              </a>
+              <a class="company-info__contacts-phone" href="tel:+78202450246" data-office="9">
+                +7(8202) <span class="company-info__phone-accent">45-02-46</span>
+              </a>
+              <div class="company-info__offices">
+                <a class="company-info__office-select" href="#">
+                  <span class="company-info__office-option company-info__office-option--active" data-office="1">Волхонское шоссе, 5</span>
+                  <span class="company-info__office-option" data-office="2">Мурманская область, Кировский район, п. Коашва</span>
+                  <span class="company-info__office-option" data-office="3">Кузнечихинский промузел, проезд 4, стр.4</span>
+                  <span class="company-info__office-option" data-office="4">Окружное шоссе, 9А</span>
+                  <span class="company-info__office-option" data-office="5">Промплощадка АО "Ковдорский ГОК"</span>
+                  <span class="company-info__office-option" data-office="6">ул. Им. Дыбцына, 42</span>
+                  <span class="company-info__office-option" data-office="7">Промплощадка ОАО "Карельский окатыш"</span>
+                  <span class="company-info__office-option" data-office="8">ул. Муезерская, 15А</span>
+                  <span class="company-info__office-option" data-office="9">ул. Ленина, 80, офис 305</span>
+                </a>
+                <ul class="company-info__regions-list">
+                  <li class="company-info__region" data-office="1">Ленинградская область</li>
+                  <li class="company-info__region" data-office="2">г. Апатиты (п. Коашва)</li>
+                  <li class="company-info__region" data-office="3">г. Архангельск</li>
+                  <li class="company-info__region" data-office="4">г. Вологда</li>
+                  <li class="company-info__region" data-office="5">г. Ковдор</li>
+                  <li class="company-info__region" data-office="6">г. Коряжма</li>
+                  <li class="company-info__region" data-office="7">г. Костомукша</li>
+                  <li class="company-info__region" data-office="8">г. Петрозаводск</li>
+                  <li class="company-info__region" data-office="9">г. Череповец</li>
+                </ul>
+              </div>
+            </div>
+            <a class="company-info__modal-trigger btn" href="#">Узнайте, какой экскаватор вам подойдёт</a>
+          </div>
+        </div>
+        <div class="header__content">
+          <div class="container">
+            <h1 class="header__main-heading">
+              Выберите модель экскаватора KOMATSU, с которым <span class="header__main-heading header__main-heading--accent">работа будет сдана в срок</span>
+            </h1>
+            <div class="header__excavators-wrapper excavators">
+              <div class="excavators__big-img"></div>
+              <div class="excavators__controls">
+                <div class="excavators__details">
+
+                </div>
+                <ul class="excavators__list">
+                  <li class="excavators__item excavators__item--active" style="background-image: url('img/section-img-small-PC210.png')">Komatsu PC210<br>Экономичный</li>
+                  <li class="excavators__item" style="background-image: url('img/section-img-small-PC210NLC-8.png')">Komatsu PC210NLC-8<br>Габаритный</li>
+                  <li class="excavators__item" style="background-image: url('img/section-img-small-PC220-8M0.png')">Komatsu PC220-8M0<br>Мощный</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="header__scroll-down" href="#">Листайте ниже</a>
   </header>
   <main class="main">
-    
+    <section class="section section--warranty">
+      <div class="container">
+        <h2 class="section__heading">Экономичен в обслуживании</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <p class="section__text">
+              Техника KOMATSU экономит ваши деньги по объективным причинам:
+            </p>
+            <ul class="section__list">
+              <li class="section__list-item">редко выходит из строя;</li>
+              <li class="section__list-item">недорогие запчасти;</li>
+              <li class="section__list-item">большой выбор запчастей.</li>
+            </ul>
+            <p class="section__text">
+              В первый год гарантийный ремонт предусмотрен на все модели без ограничения по наработке. Вы можете выбрать удобный для вас гарантийный период, в зависимости от загруженности техники.
+            </p>
+            <p class="section__text">
+              Все машины подключены к системе спутникового контроля Komtrax. Система снижает расходы на топливо и количество неисправностей. Просто откройте приложение на своём компьютере и выберите оптимальный режим работы для экскаватора.
+            </p>
+            <img class="section__img" src="img/section-img-warranty.png" alt="">
+            <p class="section__text section__text--note">
+              Система Komtrax сообщит о необходимости замены сервисных комплектующих
+            </p>
+          </div>
+          <div class="section__right-block">
+            <p class="section__highlight">
+              <span class="section__highlight-value">
+                2 года<br>
+                и 4000 м/ч
+              </span>
+              <span class="section__highlight-caption">Стандартная гарантия</span>
+            </p>
+            <a class="section__btn btn" href="#">Узнать подробнее об условиях</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--resource">
+      <div class="container">
+        <h2 class="section__heading">Техника долго сохраняет рабочий ресурс</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <p class="section__text">
+              Специалисты из строительной сферы выбирают экскаваторы KOMATSU, потому что они могут работать днём и ночью, надежны, недороги в обслуживании и минимально теряют в стоимости после длительной эксплуатации.
+            </p>
+            <p class="section__text">
+              40 000 мото-часов — минимальный срок службы экскаваторов KOMATSU при качественном обслуживании.
+            </p>
+            <p class="section__text">
+              Благодаря японским стандартам качества узлы и агрегаты сохраняют до 90% начального ресурса, а экскаваторы KOMATSU имеют высокую ликвидность на рынке техники с наработкой.
+            </p>
+            <img class="section__img" src="img/section-img-resource.png" alt="">
+            <p class="section__text section__text--note">
+              Система Komtrax показывает, где находится экскаватор и в каком он состоянии
+            </p>
+          </div>
+          <div class="section__right-block">
+            <p class="section__highlight">
+              <span class="section__highlight-value">
+                40 000
+              </span>
+              <span class="section__highlight-caption">мото-часов стабильной работы</span>
+            </p>
+            <a class="section__btn btn" href="#">Узнать подробнее о технологиях</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--24-hours">
+      <div class="container">
+        <h2 class="section__heading">Работает круглые сутки</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <p class="section__text">
+              KOMATSU работает круглосуточно и в разных погодных условиях. Северные модификации могут работать при температуре до -50 градусов.
+            </p>
+            <p class="section__text">
+              Производитель позаботился и о комфорте оператора: в кабине поддерживается низкий уровень вибрации и шума; она оснащена большим цветным ЖК-монитором; внутри и снаружи установлено дополнительное освещение для ночных работ.
+            </p>
+            <p class="section__text">
+              Кабина экскаватора соответствует стандарту безопасности ROPS и защищает оператора при опрокидывании техники.
+            </p>
+            <img class="section__img" src="img/section-img-24-hours.jpg" alt="">
+            <p class="section__text section__text--note">
+              Экскаваторы KOMATSU оборудованы мощным освещением снаружи и дополнительным светом в кабине, чтобы работать даже ночью
+            </p>
+          </div>
+          <div class="section__right-block">
+            <p class="section__highlight">
+              <span class="section__highlight-value">
+                24
+              </span>
+              <span class="section__highlight-caption">часа в сутки работает техника<br>KOMATSU</span>
+            </p>
+            <a class="section__btn btn" href="#">Узнать подробнее о технологиях</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--service">
+      <div class="container">
+        <h2 class="section__heading">Быстро возвращается к работе</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <p class="section__text">
+              Техника KOMATSU поддерживается сервисом во всём Северо-Западном федеральном округе: в вашем распоряжении 8 центров обслуживания. Анализируя данные из системы спутникового контроля Komtrax, мы знаем, какие запчасти вам понадобятся в ближайшее время, и регулярно пополняем склад.
+            </p>
+            <br>
+            <p class="section__text">
+              Оперативный сервис экономит ваши деньги и время.
+            </p>
+            <img class="section__img" src="img/section-img-service.png" alt="">
+            <p class="section__text section__text--note">
+              Северо-Западный регион на карте обслуживания машин KOMATSU
+            </p>
+          </div>
+          <div class="section__right-block">
+            <p class="section__highlight">
+              <span class="section__highlight-value">
+                9
+              </span>
+              <span class="section__highlight-caption">сервисных центров на Северо-Западе</span>
+            </p>
+            <a class="section__btn btn" href="#">Узнать подробнее об условиях</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--leasing">
+      <div class="container">
+        <h2 class="section__heading">Технику удобно взять в лизинг</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <p class="section__text">
+              Если у вас нет всей суммы, чтобы купить экскаватор прямо сейчас, воспользуйтесь лизинговыми программами наших партнёров. Лизинг сочетает возможности аренды и кредита, но при этом имеет уникальные преимущества * :
+            </p>
+            <ul class="section__list">
+              <li class="section__list-item">не нужен залог и поручители;</li>
+              <li class="section__list-item">ускоренная амортизация позволяет экономить на налогах;</li>
+              <li class="section__list-item">расходы на лизинг уменьшают налогооблагаемую базу;</li>
+              <li class="section__list-item">возврат НДС — 20% от стоимости техники.</li>
+            </ul>
+            <p class="section__text">
+              Вы платите лизинговые платежи, пользуетесь техникой, а по окончании действия договора экскаватор переходит в вашу собственность.
+            </p>
+            <p class="section__text">
+              Стоимость лизинга варьируется в зависимости от срока сделки, суммы первого взноса и размеров платежей.
+            </p>
+            <p class="section__text section__text--note">
+              * Информация не является офертой
+            </p>
+          </div>
+          <div class="section__right-block">
+            <p class="section__highlight">
+              <span class="section__highlight-value">
+                5
+              </span>
+              <span class="section__highlight-caption">дней понадобится, чтобы взять<br>машину в лизинг</span>
+            </p>
+            <a class="section__btn btn" href="#">Узнать подробнее о лизинге</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--trade-in">
+      <div class="container">
+        <h2 class="section__heading">Можно купить по программе trade-in</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <h3 class="section__subheading">В чём выгода?</h3>
+            <p class="section__text">
+              Замените свой старый экскаватор на новый от KOMATSU — по программе «трейд-ин». По условиям программы мы включим стоимость продаваемой вами техники в счёт оплаты нового экскаватора. Вы решите сразу две задачи: реализуете экскаватор, который не подходит для решения ваших задач, и приобретёте новый, подходящий.
+            </p>
+            <h3 class="section__subheading">Как это работает?</h3>
+            <p class="section__text">
+              Для осуществления сделки просто нужно предоставить следующую информацию: фотографию машины, модель, год выпуска и наработку в мото-часах. Мы передадим эту информацию нашему партнёру, который обозначит стартовую цену. Если она вас устроит, мы осмотрим технику «вживую» и уточним цену.
+            </p>
+            <img class="section__img" src="img/section-img-trade-in.png" alt="">
+          </div>
+          <div class="section__right-block">
+            <a class="section__btn btn" href="#">Узнать подробнее о trade-in</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--harvester">
+      <div class="container">
+        <h2 class="section__heading">Из любой модели можно сделать харвестер</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <p class="section__text">
+              По вашему запросу мы предоставим «лесной» экскаватор KOMATSU. Для этого к стандартной модификации экскаватора добавим защиту ходовой части и кабины, а вместо стандартного ковша установим производительную харвестерную головку.
+            </p>
+            <img class="section__img" src="img/section-img-harvester.jpg" alt="">
+            <p class="section__text section__text--note">
+              Харвестер на базе модели Komatsu PC220-LC
+            </p>
+          </div>
+          <div class="section__right-block">
+            <a class="section__btn btn" href="#">Узнать подробнее о харвестерах</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--quiz">
+      <div class="container">
+        <h2 class="section__heading">Пройдите тест и узнайте, какая техника KOMATSU подойдёт под ваши задачи</h2>
+        <div class="section__wrapper">
+          <div class="section__left-block">
+            <form class="quiz" action="/" method="post">
+              <div class="quiz__questions">
+                <div class="quiz__question">
+                  <h3 class="quiz__question-heading">Вопрос 1 из 5. Для каких работ вам необходим экскаватор?</h3>
+                  <div class="quiz__question-options">
+                    <input class="quiz__radio-input visually-hidden-input" id="q1o1" name="q1" type="radio" value="q1o1" checked>
+                    <label class="quiz__radio-label" for="q1o1">Строительные работы</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q1o2" name="q1" type="radio" value="q1o2">
+                    <label class="quiz__radio-label" for="q1o2">Валка леса</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q1o3" name="q1" type="radio" value="q1o3">
+                    <label class="quiz__radio-label" for="q1o3">Траншейные работы</label>
+                  </div>
+                </div>
+                <div class="quiz__question">
+                  <h3 class="quiz__question-heading">Вопрос 2 из 5. Вопрос два</h3>
+                  <div class="quiz__question-options">
+                    <input class="quiz__radio-input visually-hidden-input" id="q2o1" name="q2" type="radio" value="q2o1" checked>
+                    <label class="quiz__radio-label" for="q2o1">Lorem</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q2o2" name="q2" type="radio" value="q2o2">
+                    <label class="quiz__radio-label" for="q2o2">ipsum</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q2o3" name="q2" type="radio" value="q2o3">
+                    <label class="quiz__radio-label" for="q2o3">dolor</label>
+                  </div>
+                </div>
+                <div class="quiz__question">
+                  <h3 class="quiz__question-heading">Вопрос 3 из 5. Вопрос три</h3>
+                  <div class="quiz__question-options">
+                    <input class="quiz__radio-input visually-hidden-input" id="q3o1" name="q3" type="radio" value="q3o1" checked>
+                    <label class="quiz__radio-label" for="q3o1">sit</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q3o2" name="q3" type="radio" value="q3o2">
+                    <label class="quiz__radio-label" for="q3o2">amet</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q3o3" name="q3" type="radio" value="q3o3">
+                    <label class="quiz__radio-label" for="q3o3">consectetur</label>
+                  </div>
+                </div>
+                <div class="quiz__question">
+                  <h3 class="quiz__question-heading">Вопрос 4 из 5. Вопрос четыре</h3>
+                  <div class="quiz__question-options">
+                    <input class="quiz__radio-input visually-hidden-input" id="q4o1" name="q4" type="radio" value="q4o1" checked>
+                    <label class="quiz__radio-label" for="q4o1">adipisicing</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q4o2" name="q4" type="radio" value="q4o2">
+                    <label class="quiz__radio-label" for="q4o2">elit</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q4o3" name="q4" type="radio" value="q4o3">
+                    <label class="quiz__radio-label" for="q4o3">Dolore</label>
+                  </div>
+                </div>
+                <div class="quiz__question">
+                  <h3 class="quiz__question-heading">Вопрос 5 из 5. Вопрос пять</h3>
+                  <div class="quiz__question-options">
+                    <input class="quiz__radio-input visually-hidden-input" id="q5o1" name="q5" type="radio" value="q5o1" checked>
+                    <label class="quiz__radio-label" for="q5o1">aspernatur</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q5o2" name="q5" type="radio" value="q5o2">
+                    <label class="quiz__radio-label" for="q5o2">maiores</label>
+                    <input class="quiz__radio-input visually-hidden-input" id="q5o3" name="q5" type="radio" value="q5o3">
+                    <label class="quiz__radio-label" for="q5o3">nemo</label>
+                  </div>
+                </div>
+              </div>
+              <div class="quiz__navigation">
+                <button class="quiz__navigation-btn quiz__navigation-btn--prev btn btn--alt" type="button">Назад</button>
+                <button class="quiz__navigation-btn quiz__navigation-btn--next btn" type="button">Вперёд</button>
+                <button class="quiz__navigation-btn quiz__navigation-btn--submit btn" type="submit" style="display: none;">Результат</button>
+              </div>
+            </form>
+          </div>
+          <div class="section__right-block"></div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="footer">
-
+    <div class="container">
+      <div class="footer__wrapper company-info company-info--footer">
+        <div class="company-info__company">
+          <img class="company-info__company-logo" src="img/footer-logo.png" alt="Логотип Sumitec">
+          <p class="company-info__company-slogan">
+            Официальный дистрибьютор техники KOMATSU в Санкт-Петербурге
+          </p>
+        </div>
+        <div class="company-info__contacts">
+          <div class="company-info__contacts-info">
+            <a class="company-info__contacts-phone company-info__contacts-phone--active" href="tel:+74957972848" data-office="1">
+              +7(495) <span class="company-info__phone-accent">797-28-48</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+79210300292" data-office="2">
+              +7(921) <span class="company-info__phone-accent">030-02-92</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+78182657983" data-office="3">
+              +7(8182) <span class="company-info__phone-accent">65-79-83</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+79217171964" data-office="4">
+              +7(921) <span class="company-info__phone-accent">717-19-64</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+79113020250" data-office="5">
+              +7(911) <span class="company-info__phone-accent">302-02-50</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+79210701501" data-office="6">
+              +7(921) <span class="company-info__phone-accent">070-15-01</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+78145933636" data-office="7">
+              +7(81459) <span class="company-info__phone-accent">3-36-36</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+78126220910" data-office="8">
+              +7(812) <span class="company-info__phone-accent">622-09-10, доб. 2423</span>
+            </a>
+            <a class="company-info__contacts-phone" href="tel:+78202450246" data-office="9">
+              +7(8202) <span class="company-info__phone-accent">45-02-46</span>
+            </a>
+            <div class="company-info__offices">
+              <a class="company-info__office-select" href="#">
+                <span class="company-info__office-option company-info__office-option--active" data-office="1">Волхонское шоссе, 5</span>
+                <span class="company-info__office-option" data-office="2">Мурманская область, Кировский район, п. Коашва</span>
+                <span class="company-info__office-option" data-office="3">Кузнечихинский промузел, проезд 4, стр.4</span>
+                <span class="company-info__office-option" data-office="4">Окружное шоссе, 9А</span>
+                <span class="company-info__office-option" data-office="5">Промплощадка АО "Ковдорский ГОК"</span>
+                <span class="company-info__office-option" data-office="6">ул. Им. Дыбцына, 42</span>
+                <span class="company-info__office-option" data-office="7">Промплощадка ОАО "Карельский окатыш"</span>
+                <span class="company-info__office-option" data-office="8">ул. Муезерская, 15А</span>
+                <span class="company-info__office-option" data-office="9">ул. Ленина, 80, офис 305</span>
+              </a>
+              <ul class="company-info__regions-list">
+                <li class="company-info__region" data-office="1">Ленинградская область</li>
+                <li class="company-info__region" data-office="2">г. Апатиты (п. Коашва)</li>
+                <li class="company-info__region" data-office="3">г. Архангельск</li>
+                <li class="company-info__region" data-office="4">г. Вологда</li>
+                <li class="company-info__region" data-office="5">г. Ковдор</li>
+                <li class="company-info__region" data-office="6">г. Коряжма</li>
+                <li class="company-info__region" data-office="7">г. Костомукша</li>
+                <li class="company-info__region" data-office="8">г. Петрозаводск</li>
+                <li class="company-info__region" data-office="9">г. Череповец</li>
+              </ul>
+            </div>
+          </div>
+          <a class="company-info__modal-trigger btn" href="#">Узнайте, какой экскаватор вам подойдёт</a>
+        </div>
+      </div>
+    </div>
   </footer>
   <script src="vendor/js/jquery-3.4.1.min.js"></script>
+  <script src="vendor/js/slick.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

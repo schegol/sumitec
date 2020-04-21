@@ -1,30 +1,144 @@
+.section {
+  &:not(:last-child) {
+    margin-bottom: 91px;
+  }
+}
+
+.section__wrapper {
+  @include dflex(nowrap, row, space-between, flex-start);
+}
+
+.section__left-block {
+  flex-basis: 835px;
+  max-width: 100%;
+  margin-right: 75px;
+}
+
+.section__right-block {
+  flex-basis: 358px;
+  flex-shrink: 0;
+}
+
 .section__heading {
   @include reset;
-  font-size: 60px;
-  line-height: 1;
-  font-weight: normal;
+  position: relative;
+  max-width: 835px;
+  margin-bottom: 74px;
+  font-size: 26px;
+  line-height: normal;
+  font-weight: bold;
+
+  &::after {
+    @include abs-pseudo;
+    bottom: -25px;
+    left: 0;
+    width: 97px;
+    height: 4px;
+    background-color: $main-color-light;
+  }
+}
+
+.section__subheading {
+  @include reset;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.section__text {
+  @include reset;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &--note {
+    font-size: 14px;
+    font-style: italic;
+  }
+}
+
+.section__subheading + .section__text {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.section__list,
+.section ul {
+  @include list-reset;
+  margin: 5px 0;
+}
+
+.section__list-item,
+.section ul > li {
+  margin-bottom: 10px;
+
+  &::before {
+    content: "- ";
+  }
+}
+
+.section__img,
+.section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 35px 0 30px;
+}
+
+.section__btn {
+  min-width: 277px;
+  max-width: 300px;
+}
+
+.section--leasing .section__btn,
+.section--trade-in .section__btn {
+  max-width: 277px;
+}
+
+.section__highlight {
+  @include reset;
+  margin-bottom: 23px;
+}
+
+.section__highlight-value {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 59px;
+  line-height: 63px;
+  color: $font-color-dark;
+}
+
+.section__highlight-caption {
+  // display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 @media (max-width: $lg) {
   .section__heading {
-    font-size: 50px;
+    font-size: 24px;
   }
 }
 
 @media (max-width: $md) {
   .section__heading {
-    font-size: 40px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: $sm) {
   .section__heading {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: $xs) {
   .section__heading {
-    font-size: 22px;
+    font-size: 18px;
   }
 }

@@ -1,0 +1,186 @@
+.company-info {
+  @include dflex(nowrap, row, space-between, center);
+
+  &--footer {
+    padding-top: 33px;
+    padding-bottom: 63px;
+    border-top: 1px solid #E5E5E5;
+  }
+}
+
+.company-info__company {
+  @include dflex(nowrap, row, flex-start, center);
+}
+
+.company-info__company-logo {
+  display: block;
+}
+
+.company-info__company-slogan {
+  @include reset;
+  position: relative;
+  display: block;
+  margin-left: 30px;
+  padding-left: 30px;
+  width: 330px;
+  font-size: 14px;
+  line-height: 182%;
+  color: $font-color-dark;
+
+  &::after {
+    @include abs-pseudo;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 50px;
+    background-color: #4E5861;
+  }
+}
+
+.company-info--header .company-info__company-slogan {
+  color: #fff;
+
+  &::after {
+    background-color: #fff;
+  }
+}
+
+.company-info__contacts {
+  @include dflex(nowrap, row, flex-end, center);
+}
+
+.company-info__contacts-info {
+  @include dflex(nowrap, column, flex-start, flex-end);
+}
+
+.company-info__contacts-phone {
+  display: none;
+  margin-bottom: 2px;
+  color: $font-color-dark;
+  font-size: 20px;
+  line-height: normal;
+  letter-spacing: 1px;
+
+  &--active {
+    display: inline-block;
+  }
+}
+
+.company-info--header .company-info__contacts-phone {
+  color: #fff;
+}
+
+.company-info__phone-accent {
+  display: inline-block;
+  margin-bottom: 2px;
+  color: $font-color-dark;
+  font-size: 20px;
+  line-height: normal;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.company-info--header .company-info__phone-accent {
+  color: #fff;
+}
+
+.company-info__offices {
+  @include dflex(nowrap, row, flex-end, flex-start);
+  position: relative;
+}
+
+.company-info__office-select {
+  position: relative;
+  padding-right: 17px;
+
+  &::after {
+    @include abs-pseudo;
+    top: 50%;
+    right: 4px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border-right: 1px solid $font-color-dark;
+    border-bottom: 1px solid $font-color-dark;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.company-info--header .company-info__office-select {
+  &::after {
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+  }
+}
+
+.company-info__office-option {
+  @include transition(opacity);
+  display: none;
+  font-size: 14px;
+  line-height: normal;
+  color: $font-color-dark;
+  border-bottom: 1px dashed $font-color-dark;
+  opacity: 1;
+
+  &--active {
+    display: inline;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
+}
+
+.company-info--header .company-info__office-option {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.company-info__regions-list {
+  @include dflex(nowrap, column, flex-start, flex-start);
+  @include list-reset;
+  position: absolute;
+  left: 50%;
+  display: none;
+  width: 250px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 5px 25px rgba(0,0,0,.1);
+  transform: translateX(-50%);
+
+  &--open {
+    display: flex;
+  }
+}
+
+.company-info--header .company-info__regions-list {
+  top: 100%;
+}
+
+.company-info--footer .company-info__regions-list {
+  bottom: 100%;
+}
+
+.company-info__region {
+  @include dflex(nowrap, row, flex-start, center);
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  font-size: 13px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgba(0,0,0,.02);
+  }
+}
+
+.company-info__modal-trigger {
+  width: 340px;
+  margin-left: 25px;
+}

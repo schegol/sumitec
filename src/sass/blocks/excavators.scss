@@ -1,0 +1,45 @@
+.excavators {
+  @include dflex(nowrap, row, flex-end, flex-start);
+  position: relative;
+}
+
+.excavators__big-img {
+  position: absolute;
+}
+
+.excavators__list {
+  @include list-reset;
+  @include dflex(nowrap, column, flex-start, flex-start);
+}
+
+.excavators__item {
+  @include dflex(nowrap, row, flex-start, center);
+  @include transition();
+  width: 320px;
+  height: 100px;
+  padding-left: 125px;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 5px;
+  background-size: 100px auto;
+  background-position: left 10px center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &--active {
+    color: #fff;
+    background-color: $header-color-dark;
+  }
+
+  &:not(.excavators__item--active):hover,
+  &:not(.excavators__item--active):focus {
+    color: #fff;
+    background-color: $font-color-dark;
+  }
+}

@@ -1,0 +1,29 @@
+.btn {
+  @include dflex(nowrap, row, center, center);
+  @include transition(background-color);
+  height: 50px;
+  // padding: 0 40px;
+  font-size: 13px;
+  line-height: normal;
+  font-weight: 600;
+  color: #1C2626;
+  background-color: $main-color-light;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: $main-color-dark;
+  }
+
+  &--alt {
+    color: #fff;
+    background-color: $font-color-dark;
+
+    &:hover,
+    &:focus {
+      background-color: $header-color-dark;
+    }
+  }
+}
