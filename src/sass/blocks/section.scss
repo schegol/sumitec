@@ -1,0 +1,30 @@
+.section__heading {
+  @include reset;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: normal;
+}
+
+@media (max-width: $lg) {
+  .section__heading {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: $md) {
+  .section__heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: $sm) {
+  .section__heading {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: $xs) {
+  .section__heading {
+    font-size: 22px;
+  }
+}
