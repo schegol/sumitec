@@ -1,10 +1,126 @@
 .excavators {
   @include dflex(nowrap, row, flex-end, flex-start);
+  padding-bottom: 260px;
+}
+
+.excavators__controls {
+  @include dflex(nowrap, row, flex-end, flex-start);
+}
+
+.excavators__details-wrapper {
+  // display: none;
+  flex-basis: 308px;
+  margin-top: 57px;
+  margin-right: 63px;
+
+  &--active {
+    // display: block;
+  }
+}
+
+.excavators__details {
+  @include dflex(nowrap, column, flex-start, flex-start);
   position: relative;
 }
 
 .excavators__big-img {
   position: absolute;
+  top: 50%;
+  right: calc(100% + 45px);
+  width: 580px;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.excavators__excavator-title {
+  @include reset;
+  margin-bottom: 22px;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: calc(106% + 10px);
+  color: #fff;
+}
+
+.excavators__excavator-props {
+  @include dflex(nowrap, row, space-between, flex-start);
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.excavators__prop {
+  @include dflex(nowrap, column, flex-start, center);
+  @include reset;
+}
+
+.excavators__prop-value {
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.excavators__prop-name {
+  color: #fff;
+  font-size: 13px;
+  line-height: normal;
+}
+
+.excavators__excavator-availability {
+  @include dflex(nowrap, row, center, center);
+  margin-bottom: 18px;
+  padding: 10px;
+  background-color: $header-color-dark;
+  border-radius: 5px;
+}
+
+.excavators__excavator-status {
+  position: relative;
+  padding-left: 12px;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: normal;
+  text-transform: uppercase;
+
+  &::before {
+    @include abs-pseudo;
+    top: 50%;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  &--available {
+    color: #64DC06;
+
+    &::before {
+      background-color: #64DC06;
+    }
+  }
+
+  &--unavailable {
+    color: #c24034;
+
+    &::before {
+      background-color: #c24034;
+    }
+  }
+}
+
+.excavators__excavator-availability--unavailable .excavators__excavator-status--available,
+.excavators__excavator-availability--available .excavators__excavator-status--unavailable {
+  display: none;
+}
+
+.excavators__modal-trigger {
+  @include dflex(nowrap, row, center, center);
+  padding: 15px 40px;
 }
 
 .excavators__list {
@@ -13,32 +129,39 @@
 }
 
 .excavators__item {
-  @include dflex(nowrap, row, flex-start, center);
-  @include transition();
   width: 320px;
   height: 100px;
-  padding-left: 125px;
-  font-size: 14px;
-  line-height: 25px;
-  font-weight: bold;
-  background-color: #fff;
   border-radius: 5px;
-  background-size: 100px auto;
-  background-position: left 10px center;
-  background-repeat: no-repeat;
-  cursor: pointer;
+  overflow: hidden;
 
   &:not(:last-child) {
     margin-bottom: 20px;
   }
+}
+
+.excavators__item-link {
+  @include dflex(nowrap, row, flex-start, center);
+  @include transition();
+  width: 100%;
+  height: 100%;
+  padding-left: 125px;
+  font-size: 14px;
+  line-height: 25px;
+  color: #4E5861;
+  font-weight: bold;
+  background-color: #fff;
+  background-size: 95px auto;
+  background-position: left 15px center;
+  background-repeat: no-repeat;
+  outline: none;
 
   &--active {
     color: #fff;
     background-color: $header-color-dark;
   }
 
-  &:not(.excavators__item--active):hover,
-  &:not(.excavators__item--active):focus {
+  &:not(.excavators__item-link--active):hover,
+  &:not(.excavators__item-link--active):focus {
     color: #fff;
     background-color: $font-color-dark;
   }

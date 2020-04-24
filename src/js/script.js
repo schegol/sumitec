@@ -1,10 +1,48 @@
 $(document).ready(function() {
+  //промотка вниз в шапке:
+  const scrollDownBtn = $('.header__scroll-down');
+
+  scrollDownBtn.click(function (e) {
+    e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $('#main').offset().top
+    }, 500);
+  });
+
   //модалки:
-  const modalTriggers = $('.section__btn, .company-info__modal-trigger');
+  const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger');
   const modal = $('.modal');
 
   modalTriggers.click(function (e) {
     e.preventDefault();
+  });
+
+  //экскаваторы:
+  const excavatorToggles = $('.excavators__item-link');
+  const excavatorDetails = $('.excavators__details-wrapper');
+
+  excavatorToggles.each(function () {
+    $(this).click(function (e) {
+      e.preventDefault();
+      let excavatorId = $(this).data('excavator');
+
+      if (!$(this).hasClass('excavators__item-link--active')) {
+        excavatorToggles.removeClass('excavators__item-link--active');
+        $(this).addClass('excavators__item-link--active');
+
+        excavatorDetails.removeClass('excavators__details-wrapper--active').fadeOut(250);
+        excavatorDetails.each(function () {
+          let excavator = $(this);
+
+          if (excavator.attr('data-excavator') == excavatorId) {
+            $(this).addClass('excavators__details-wrapper--active');
+            setTimeout(function () {
+              excavator.fadeIn(250);
+            }, 250);
+          };
+        });
+      };      
+    });
   });
 
   //квиз:
@@ -24,7 +62,7 @@ $(document).ready(function() {
     fade: true,
     draggable: false,
     swipe: false,
-    touchMove: false,
+    touchMove: false
   });
 
   quiz.on('afterChange', function(event, slick, currentSlide) {

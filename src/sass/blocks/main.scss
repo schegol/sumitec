@@ -1,3 +1,27 @@
 .main {
   padding: 80px 0 72px;
 }
+
+@media (max-width: $lg) {
+  .main {
+    padding: 70px 0 65px;
+  }
+}
+
+@media (max-width: $md) {
+  .main {
+    padding: 60px 0 55px;
+  }
+}
+
+@media (max-width: $sm) {
+  .main {
+    padding: 50px 0 45px;
+  }
+}
+
+@media (max-width: $xs) {
+  .main {
+    padding: 30px 0 25px;
+  }
+}

@@ -1,7 +1,7 @@
 .header {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../img/header-img-bg.jpg");
   background-position: center;
   background-size: cover;
@@ -31,7 +31,7 @@
 .header__scroll-down {
   position: absolute;
   top: 50%;
-  right: 5%;
+  right: calc(50% - 805px);
   padding-left: 24px;
   font-size: 12px;
   line-height: 20px;
@@ -51,5 +51,10 @@
     background-position: center;
     background-size: auto;
     transform: translateY(-50%);
+  }
+
+  &:hover,
+  &:focus {
+    font-weight: 900;
   }
 }

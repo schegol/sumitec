@@ -120,25 +120,162 @@
 }
 
 @media (max-width: $lg) {
+  .section {
+    &:not(:last-child) {
+      margin-bottom: 85px;
+    }
+  }
+
   .section__heading {
     font-size: 24px;
+  }
+
+  .section__left-block {
+    flex-basis: auto;
+    margin-right: 50px;
+  }
+
+  .section__right-block {
+    flex-basis: 320px;
+  }
+
+  .section__highlight-value {
+    font-size: 52px;
+    line-height: 56px;
   }
 }
 
 @media (max-width: $md) {
+  .section {
+    &:not(:last-child) {
+      margin-bottom: 70px;
+    }
+  }
+
   .section__heading {
+    margin-bottom: 60px;
     font-size: 22px;
+  }
+
+  .section__left-block {
+    margin-right: 20px;
+  }
+
+  .section__right-block {
+    flex-basis: 277px;
+  }
+
+  .section__highlight-value {
+    font-size: 44px;
+    line-height: 50px;
+  }
+
+  .section__highlight {
+    margin-bottom: 16px;
   }
 }
 
 @media (max-width: $sm) {
+  .section {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+
   .section__heading {
     font-size: 20px;
+  }
+
+  .section__wrapper {
+    flex-direction: column;
+  }
+
+  .section__left-block {
+    margin-right: 0;
+  }
+
+  .section__right-block {
+    @include dflex(nowrap, row, space-between, center);
+    flex-basis: auto;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .section__highlight {
+    @include dflex(nowrap, row, flex-start, center);
+    margin-bottom: 0;
+  }
+
+  .section__highlight-value {
+    flex-shrink: 0;
+    margin-right: 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .section__highlight-caption {
+    padding-right: 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .section__btn,
+  .section--leasing .section__btn,
+  .section--trade-in .section__btn {
+    flex-shrink: 0;
+    width: 270px;
+    min-width: 0;
+    max-width: none;
+
+    &:only-child {
+      margin: 0 auto;
+    }
   }
 }
 
 @media (max-width: $xs) {
+  .section {
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+  }
+
   .section__heading {
+    margin-bottom: 50px;
     font-size: 18px;
+  }
+
+  .section__right-block {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .section__highlight {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+
+    & br {
+      display: none;
+    }
+  }
+
+  .section__highlight-value {
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .section__highlight-caption {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .section__btn,
+  .section--leasing .section__btn,
+  .section--trade-in .section__btn {
+    width: 100%;
   }
 }
