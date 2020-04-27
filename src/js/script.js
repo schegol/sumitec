@@ -11,10 +11,46 @@ $(document).ready(function() {
 
   //модалки:
   const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger');
-  const modal = $('.modal');
+  const modalOverlay = $('.landing-modal');
+  const modalForm = $('.landing-modal__form');
+  const modalCloseBtn = $('.landing-modal__close-btn');
+  const modalPhoneField = $('.landing-modal__form-field--phone');
 
   modalTriggers.click(function (e) {
     e.preventDefault();
+    modalOverlay.addClass('landing-modal--open');
+    $('body').addClass('modal-open');
+  });
+
+  var closeModal = function () {
+    modalOverlay.removeClass('landing-modal--open');
+    $('body').removeClass('modal-open');
+  };
+
+  modalCloseBtn.click(function () {
+    closeModal();
+  });
+
+  modalOverlay.click(function (e) {
+    if (!modalForm.is(e.target) && modalForm.has(e.target).length === 0) {
+      closeModal();
+    };
+  });
+
+  $(document).keydown(function(e) {
+    if (e.keyCode == 27) {
+        closeModal();
+    };
+  });
+
+  modalForm.submit(function (e) {
+    e.preventDefault();
+  });
+
+  modalPhoneField.inputmask({
+    'mask':'+7-999-9999999',
+    'clearIncomplete': true,
+    'greedy': false
   });
 
   //экскаваторы:
@@ -41,7 +77,7 @@ $(document).ready(function() {
             }, 250);
           };
         });
-      };      
+      };
     });
   });
 
@@ -125,20 +161,3 @@ $(document).ready(function() {
     officeLists.removeClass('company-info__regions-list--open');
   });
 });
-
-// var officeListCall = function (toggle) {
-//   let thisOfficeList = toggle.next('.company-info__regions-list');
-//
-//   toggle.click(function (e) {
-//     e.preventDefault();
-//     thisOfficeList.toggleClass('company-info__regions-list--open');
-//   });
-//
-//   $(document).mouseup(function (e) {
-//     if (!thisOfficeList.is(e.target) && thisOfficeList.has(e.target).length === 0 && !toggle.is(e.target) && toggle.has(e.target).length === 0) {
-//         thisOfficeList.removeClass('company-info__regions-list--open');
-//     };
-//   });
-// };
-//
-// officeListCall(officeToggles);

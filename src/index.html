@@ -526,8 +526,30 @@
       </div>
     </div>
   </footer>
+
+  <section class="landing-modal">
+    <form class="landing-modal__form" action="/" method="post">
+      <button class="landing-modal__close-btn" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line stroke="#36434f" x1="18" y1="6" x2="6" y2="18"/>
+          <line stroke="#36434f" x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <h2 class="landing-modal__heading">Мы готовы ответить!</h2>
+      <h3 class="landing-modal__subheading">Оставьте свои контактные данные, и мы дадим Вам подробную консультацию о продукции Komatsu</h3>
+      <input class="landing-modal__form-field landing-modal__form-field--name" type="text" name="name" value="" placeholder="Ваше ФИО*" required>
+      <input class="landing-modal__form-field landing-modal__form-field--phone" type="text" name="phone" value="" placeholder="Ваш телефон*" required>
+      <input class="landing-modal__form-field landing-modal__form-field--email" type="email" name="email" placeholder="Ваш email" value="">
+      <p class="landing-modal__required-info">
+        *Отмеченные звездочкой поля обязательны для заполнения
+      </p>
+      <input class="landing-modal__sumbit btn" type="submit" name="" value="Отправить">
+    </form>
+  </section>
+
   <script src="vendor/js/jquery-3.4.1.min.js"></script>
   <script src="vendor/js/slick.min.js"></script>
+  <script src="vendor/js/jquery.inputmask.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

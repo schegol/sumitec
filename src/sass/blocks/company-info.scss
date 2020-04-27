@@ -1,5 +1,5 @@
 .company-info {
-  @include dflex(nowrap, row, space-between, center);
+  @include dflex(nowrap, row, space-between, flex-end);
 
   &--footer {
     padding-top: 33px;
@@ -9,7 +9,7 @@
 }
 
 .company-info__company {
-  @include dflex(nowrap, row, flex-start, center);
+  @include dflex(nowrap, row, flex-start, flex-end);
 }
 
 .company-info__company-logo {
@@ -20,6 +20,7 @@
   @include reset;
   position: relative;
   display: block;
+  margin-bottom: 10px;
   margin-left: 30px;
   padding-left: 30px;
   width: 330px;
@@ -46,11 +47,12 @@
 }
 
 .company-info__contacts {
-  @include dflex(nowrap, row, flex-end, center);
+  @include dflex(nowrap, row, flex-end, flex-end);
 }
 
 .company-info__contacts-info {
   @include dflex(nowrap, column, flex-start, flex-end);
+  margin-bottom: 10px;
 }
 
 .company-info__contacts-phone {
@@ -60,6 +62,8 @@
   font-size: 20px;
   line-height: normal;
   letter-spacing: 1px;
+  // white-space: nowrap;
+  text-align: right;
 
   &--active {
     display: inline-block;
@@ -87,6 +91,8 @@
 .company-info__offices {
   @include dflex(nowrap, row, flex-end, flex-start);
   position: relative;
+  // white-space: nowrap;
+  text-align: right;
 }
 
 .company-info__office-select {
@@ -156,10 +162,12 @@
 
 .company-info--header .company-info__regions-list {
   top: 100%;
+  z-index: 10;
 }
 
 .company-info--footer .company-info__regions-list {
   bottom: 100%;
+  z-index: 10;
 }
 
 .company-info__region {
@@ -182,5 +190,6 @@
 
 .company-info__modal-trigger {
   width: 340px;
+  margin-bottom: 10px;
   margin-left: 25px;
 }

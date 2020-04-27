@@ -38,6 +38,7 @@
 
 .excavators__excavator-title {
   @include reset;
+  max-width: 100%;
   margin-bottom: 22px;
   font-weight: bold;
   font-size: 22px;
@@ -164,5 +165,126 @@
   &:not(.excavators__item-link--active):focus {
     color: #fff;
     background-color: $font-color-dark;
+  }
+}
+
+@media (max-width: $xl) {
+  .excavators__details-wrapper {
+    margin-right: 50px;
+  }
+
+  .excavators__big-img {
+    right: calc(100% + 35px);
+    width: 545px;
+    height: 545px;
+  }
+}
+
+@media (max-width: $lg) {
+  .excavators {
+    padding-bottom: 160px;
+  }
+
+  .excavators__controls {
+    justify-content: center;
+    width: 100%;
+    padding-left: 400px;
+  }
+
+  .excavators__details-wrapper {
+    flex-basis: 275px;
+    margin: 0;
+  }
+
+  .excavators__excavator-title {
+    font-size: 20px;
+    line-height: calc(106% + 5px);
+  }
+
+  .excavators__excavator-props {
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+  }
+
+  .excavators__prop {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .excavators__list {
+    flex-basis: 300px;
+  }
+
+  .excavators__item {
+    width: 100%;
+  }
+
+  .excavators__item-link {
+    padding-left: 110px;
+    font-size: 13px;
+    line-height: 22px;
+    background-size: 90px auto;
+    background-position: left 10px center;
+  }
+
+  .excavators__big-img {
+    // right: 100%;
+    width: 385px;
+    width: 385px;
+  }
+}
+
+@media (max-width: $md) {
+  .excavators__controls {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    padding-left: 0;
+  }
+
+  .excavators__details {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .excavators__excavator-title {
+    flex-basis: 250px;
+    margin-bottom: 0;
+  }
+
+  .excavators__excavator-availability {
+    width: auto;
+    min-width: 100px;
+    margin-bottom: 0;
+  }
+
+  .excavators__details-wrapper {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .excavators__list {
+    flex-basis: auto;
+    width: 320px;
+  }
+
+  .excavators__excavator-props {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-basis: 270px;
+    margin-bottom: 0;
+    width: auto;
+  }
+
+  .excavators__prop {
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 }

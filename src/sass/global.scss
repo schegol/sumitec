@@ -14,6 +14,23 @@ body {
   background-color: #fff;
 }
 
+body.modal-open {
+  // position: fixed;
+  overflow: hidden;
+  z-index: 1;
+
+  & .header,
+  & .main,
+  & .footer {
+    filter: blur(3px);
+  }
+
+  & .main,
+  & .footer {
+    padding-right: 17px;
+  }
+}
+
 *,
 *::before,
 *::after {
