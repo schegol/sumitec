@@ -193,3 +193,100 @@
   margin-bottom: 10px;
   margin-left: 25px;
 }
+
+@media (max-width: $mdplus) {
+  .company-info {
+    align-items: flex-start;
+  }
+
+  .company-info__company {
+    align-items: center;
+  }
+
+  .company-info__company-slogan {
+    margin-bottom: 0;
+  }
+
+  .company-info__contacts {
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .company-info__contacts-info {
+    flex-basis: 100%;
+  }
+
+  .company-info__modal-trigger {
+    width: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: $md) {
+  .company-info__company-slogan {
+    margin-left: 25px;
+    padding-left: 25px;
+    font-size: 13px;
+  }
+
+  .company-info__contacts-phone,
+  .company-info__phone-accent {
+    font-size: 18px;
+  }
+
+  .company-info__office-option {
+    font-size: 13px;
+  }
+
+  .company-info__modal-trigger {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: $sm) {
+  .company-info {
+    align-items: center;
+  }
+
+  .company-info__contacts {
+    margin-top: 0;
+  }
+
+  .company-info__contacts-info {
+    margin-bottom: 0;
+  }
+
+  .company-info__company-slogan,
+  .company-info__modal-trigger {
+    display: none;
+  }
+
+  .company-info__contacts-phone {
+    margin-bottom: 0;
+  }
+
+  .company-info__phone-accent {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: $xs) {
+  .company-info__company {
+    margin-right: 10px;
+  }
+
+  .company-info__company-logo {
+    max-width: 110px;
+  }
+
+  .company-info__contacts-phone,
+  .company-info__phone-accent {
+    font-size: 14px;
+  }
+
+  .company-info__office-option {
+    font-size: 12px;
+  }
+}

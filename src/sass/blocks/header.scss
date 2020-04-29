@@ -82,26 +82,35 @@
 }
 
 @media (max-width: $md) {
+  .header {
+    padding-bottom: 30px;
+    background-image: url("../img/header-img-bg-small.jpg");
+  }
+
   .header__main-heading {
     max-width: 800px;
     margin: 70px auto 55px;
     font-size: 32px;
     line-height: 42px;
   }
+
+  .header__scroll-down {
+    display: none;
+  }
 }
 
 @media (max-width: $sm) {
   .header__main-heading {
-    max-width: 555px;
-    font-size: 22px;
-    line-height: 34px;
+    max-width: 100%;
+    margin-top: 50px;
+    font-size: 21px;
+    line-height: 32px;
   }
 }
 
 @media (max-width: $xs) {
   .header__main-heading {
-    max-width: 100%;
     font-size: 16px;
-    line-height: 28px;
+    line-height: 24px;
   }
 }

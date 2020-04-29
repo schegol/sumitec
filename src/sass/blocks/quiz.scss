@@ -71,8 +71,43 @@
   &--prev {
     margin-right: 24px;
   }
+  //
+  // &--submit {
+  //   border: 1px solid $font-color-dark;
+  // }
+}
 
-  &--submit {
-    border: 1px solid $font-color-dark;
+@media (max-width: $sm) {
+  .quiz__navigation {
+    justify-content: center;
+  }
+
+  .quiz__navigation-btn {
+    width: auto;
+    flex-basis: 200px;
+  }
+}
+
+@media (max-width: $xs) {
+  .quiz__radio-label {
+    &::before {
+      left: 8px;
+    }
+
+    &::after {
+      left: 13px;
+    }
+  }
+
+  .quiz__navigation {
+    justify-content: space-between;
+  }
+
+  .quiz__navigation-btn {
+    flex-basis: calc(50% - 5px);
+
+    &--prev {
+      margin-right: 0;
+    }
   }
 }
