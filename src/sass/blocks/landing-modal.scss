@@ -1,3 +1,44 @@
+@keyframes modalOverlayAnimation {
+  from {
+    background-color: rgba(0,0,0,0);
+  }
+
+  to {
+    background-color: rgba(0,0,0,.3);
+  }
+}
+
+@keyframes modalFormAnimation {
+  from {
+    left: 150%;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes modalOverlayAnimationBackwards {
+  from {
+    background-color: rgba(0,0,0,.3);
+
+  }
+
+  to {
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+@keyframes modalFormAnimationBackwards {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 150%;
+  }
+}
+
 .landing-modal {
   position: fixed;
   top: 0;
@@ -139,58 +180,6 @@
 }
 
 @media (max-width: $md) {
-  @keyframes modalOverlayAnimation {
-    from {
-      background-color: rgba(0,0,0,0);
-    }
-
-    to {
-      background-color: rgba(0,0,0,.3);
-    }
-  }
-
-  @keyframes modalFormAnimation {
-    from {
-      left: 150%;
-    }
-
-    to {
-      left: 50%;
-    }
-  }
-
-  .landing-modal {
-    &--animated {
-      animation-name: modalOverlayAnimation;
-      animation-duration: .5s;
-      animation-fill-mode: forwards;
-      animation-timing-function: linear;
-
-      & .landing-modal__form {
-        animation-name: modalFormAnimation;
-        animation-duration: .5s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-out;
-      }
-    }
-
-    &--animated-backwards {
-      animation-name: modalOverlayAnimation;
-      animation-duration: .5s;
-      animation-fill-mode: forwards;
-      animation-direction: reverse;
-      animation-timing-function: linear;
-
-      & .landing-modal__form {
-        animation-name: modalFormAnimation;
-        animation-duration: .5s;
-        animation-fill-mode: forwards;
-        animation-direction: reverse;
-        animation-timing-function: linear;
-      }
-    }
-  }
-
   .landing-modal__form {
     padding: 35px;
   }
@@ -209,6 +198,36 @@
   .landing-modal {
     &--excavators {
       display: block;
+    }
+
+    &--animated {
+      animation-name: modalOverlayAnimation;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-direction: normal;
+
+      & .landing-modal__form {
+        animation-name: modalFormAnimation;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+        animation-direction: normal;
+      }
+    }
+
+    &--animated-backwards {
+      animation-name: modalOverlayAnimationBackwards;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+
+      & .landing-modal__form {
+        animation-name: modalFormAnimationBackwards;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+      }
     }
   }
 

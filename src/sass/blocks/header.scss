@@ -100,9 +100,14 @@
 }
 
 @media (max-width: $sm) {
+  .header {
+    min-height: 0
+  }
+  
   .header__main-heading {
     max-width: 100%;
     margin-top: 50px;
+    margin-bottom: 45px;
     font-size: 21px;
     line-height: 32px;
   }

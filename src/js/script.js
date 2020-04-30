@@ -40,11 +40,11 @@ $(document).ready(function() {
 
   var closeModal = function () {
     if (modalOverlay.hasClass('landing-modal--animated')) {
-      // modalOverlay.addClass('landing-modal--animated-backwards');
-      // setTimeout(function () {
-        modalOverlay.removeClass('landing-modal--open').removeClass('landing-modal--animated').removeClass('landing-modal--animated-backwards');
+      modalOverlay.removeClass('landing-modal--animated').addClass('landing-modal--animated-backwards');
+      setTimeout(function () {
+        modalOverlay.removeClass('landing-modal--open').removeClass('landing-modal--animated-backwards');
         $('body').removeClass('modal-open');
-      // }, 500);
+      }, 500);
     } else {
       modalOverlay.removeClass('landing-modal--open');
       $('body').removeClass('modal-open');
@@ -67,14 +67,20 @@ $(document).ready(function() {
     };
   });
 
-  modalForm.submit(function (e) {
-    e.preventDefault();
-  });
-
   modalPhoneField.inputmask({
     'mask':'+7-999-9999999',
     'clearIncomplete': true,
     'greedy': false
+  });
+
+  modalForm.submit(function (e) {
+    const messageBox = $('.landing-modal__subheading');
+
+    e.preventDefault();
+    modalForm.html('<p style="text-align: center;">Спасибо! Наш менеджер свяжется с Вами в ближайшее время.</p>');
+    setTimeout(function () {
+      closeModal();
+    }, 1800);
   });
 
   //экскаваторы:
