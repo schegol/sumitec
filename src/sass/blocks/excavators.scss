@@ -247,7 +247,7 @@
   }
 
   .excavators__controls {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: flex-end;
     padding-left: 0;
   }
@@ -256,7 +256,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-end;
     margin-top: 50px;
   }
 
@@ -265,14 +265,15 @@
     flex-basis: auto;
     max-width: 250px;
     margin-bottom: 15px;
+    text-align: right;
   }
 
   .excavators__availability-wrapper {
-    position: absolute;
-    left: 260px;
-    top: -3px;
+    // position: absolute;
+    // left: 260px;
+    // top: -3px;
     // order: 1;
-    flex-basis: 100%;
+    // flex-basis: 100%;
     margin-bottom: 15px;
   }
 
@@ -293,11 +294,11 @@
   }
 
   .excavators__big-img {
-    top: -170px;
+    top: calc(50% - 30px);
     right: auto;
-    left: 30%;
-    width: 420px;
-    height: 260px;
+    left: 36%;
+    width: 350px;
+    height: 305px;
     transform: translate(-50%, -50%);
   }
 
@@ -321,8 +322,22 @@
   .excavators__list {
     position: relative;
     top: 45px;
+    flex-direction: row;
     flex-basis: auto;
-    width: 285px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .excavators__item {
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .excavators__item-link {
+    padding-right: 10px;
   }
 }
 
@@ -385,6 +400,7 @@
 
   .excavators__availability-wrapper {
     position: static;
+    flex-basis: 100%;
     margin-left: 164px;
   }
 
@@ -394,6 +410,7 @@
 
   .excavators__list {
     position: static;
+    flex-direction: column;
     width: calc(100vw - 20px);
     margin: 0 10px 35px;
   }
