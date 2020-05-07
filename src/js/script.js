@@ -10,33 +10,33 @@ $(document).ready(function() {
   });
 
   //модалки:
-  const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger, .quiz__navigation-btn--submit');
+  const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger');
   const modalOverlay = $('.landing-modal');
   const modalForm = $('.landing-modal__form');
   const modalCloseBtn = $('.landing-modal__close-btn');
   const modalPhoneField = $('.landing-modal__form-field--phone');
   const scrollableWrapper = $('.excavators__controls');
 
-  modalTriggers.click(function (e) {
-    if ($(window).width() >= 768) {
-      e.preventDefault();
-      modalOverlay.addClass('landing-modal--open');
-      $('body').addClass('modal-open');
-    } else {
-      if ($(e.target).hasClass('quiz__navigation-btn--submit')) {
+  var openModal = function (elements) {
+    elements.click(function (e) {
+      if ($(window).width() >= 768) {
         e.preventDefault();
         modalOverlay.addClass('landing-modal--open');
         $('body').addClass('modal-open');
-      } else if ($(e.target).hasClass('excavators__modal-trigger')) {
-        e.preventDefault();
-        scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
       } else {
-        e.preventDefault();
-        modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
-        $('body').addClass('modal-open');
+        if ($(e.target).hasClass('excavators__modal-trigger')) {
+          e.preventDefault();
+          scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
+        } else {
+          e.preventDefault();
+          modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
+          $('body').addClass('modal-open');
+        };
       };
-    };
-  });
+    });
+  };
+
+  openModal(modalTriggers);
 
   var closeModal = function () {
     if (modalOverlay.hasClass('landing-modal--animated')) {
@@ -142,16 +142,22 @@ $(document).ready(function() {
 
   //квиз:
   const quiz = $('.quiz__questions');
+  const quizQuestions = $('.quiz__question');
   const quizPrevBtn = $('.quiz__navigation .quiz__navigation-btn--prev');
   const quizNextBtn = $('.quiz__navigation .quiz__navigation-btn--next');
   const quizSubmitBtn = $('.quiz__navigation .quiz__navigation-btn--submit');
+  const quizRadios = $('.quiz__radio-input');
 
   quiz.slick({
     prevArrow: quizPrevBtn,
     nextArrow: quizNextBtn,
     autoPlay: false,
     // adaptiveHeight: true,
-    dots: false,
+    dots: true,
+    // appendDots: quizDots,
+    customPaging: function (slider, i) {
+        return '<a class="quiz__status-dot" data-slide="' + i + '" href="#"></a>';
+    },
     infinite: false,
     speed: 100,
     fade: true,
@@ -160,7 +166,36 @@ $(document).ready(function() {
     touchMove: false
   });
 
-  quiz.on('afterChange', function(event, slick, currentSlide) {
+  var questionsAnswered = new Array();
+  const refreshQuizStatus = function () {
+    quizQuestions.each(function () {
+      let questionId = $(this).data('slide');
+      if (questionsAnswered[questionId] === true) {
+        $('.quiz .slick-dots').find('.quiz__status-dot[data-slide=' + questionId + ']').removeClass('quiz__status-dot--unanswered');
+        $('.quiz .slick-dots').find('.quiz__status-dot[data-slide=' + questionId + ']').addClass('quiz__status-dot--answered');
+      } else if (questionsAnswered[questionId] === false) {
+        $('.quiz .slick-dots').find('.quiz__status-dot[data-slide=' + questionId + ']').addClass('quiz__status-dot--unanswered');
+        $('.quiz .slick-dots').find('.quiz__status-dot[data-slide=' + questionId + ']').removeClass('quiz__status-dot--answered');
+      };
+    });
+  };
+
+  const quizDot = $('.quiz__status-dot');
+  quizDot.click(function (e) {
+    e.preventDefault();
+  });
+
+  quiz.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    if (!$(this).find($('.slick-slide[data-slick-index=' + currentSlide + ']')).find('input').is(':checked')) {
+      questionsAnswered[currentSlide] = false;
+    } else {
+      questionsAnswered[currentSlide] = true;
+    };
+
+    refreshQuizStatus();
+  });
+
+  quiz.on('afterChange', function (event, slick, currentSlide) {
     if (slick.$slides.length-1 == currentSlide) {
       quizNextBtn.css('display', 'none');
       quizSubmitBtn.css('display', 'block');
@@ -168,9 +203,47 @@ $(document).ready(function() {
       quizNextBtn.css('display', 'block');
       quizSubmitBtn.css('display', 'none');
     };
+
+    if (!$(this).find($('.slick-slide[data-slick-index=' + currentSlide + ']')).find('input').is(':checked')) {
+      questionsAnswered[currentSlide] = false;
+    } else {
+      questionsAnswered[currentSlide] = true;
+    };
+
+    refreshQuizStatus();
+  });
+
+  quizRadios.change(function () {
+    let slide = $(this).parents('.quiz__question');
+    let slideId = slide.data('slide');
+
+    if (slide.find('input').is(':checked')) {
+      questionsAnswered[slideId] = true;
+    };
+
+    refreshQuizStatus();
   });
 
   //отправка результатов квиза:
+  quizSubmitBtn.click(function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    for (let i = 0; i < questionsAnswered.length; i++) {
+      if (questionsAnswered[i] === false || questionsAnswered[i] === undefined) {
+        valid = false;
+        $('.quiz .slick-dots').find('.quiz__status-dot[data-slide=' + i + ']').addClass('quiz__status-dot--unanswered');
+      };
+    };
+
+    if (valid === true) {
+      modalOverlay.addClass('landing-modal--open');
+      $('body').addClass('modal-open');
+    } else {
+      alert('Пожалуйста, ответьте на все вопросы!');
+    };
+  });
+
   const quizForm = $('form.quiz');
 
   quizForm.submit(function (e) {
@@ -218,5 +291,19 @@ $(document).ready(function() {
       }
     });
     officeLists.removeClass('company-info__regions-list--open');
+  });
+
+  //fancybox для изображений:
+  const zoomableImages = $('.section__img-lightbox');
+
+  zoomableImages.fancybox({
+    buttons : [
+      'close'
+    ],
+    loop: false,
+    keyboard: true,
+    arrows: true,
+    smallBtn: true,
+    toolbar: 'auto'
   });
 });
