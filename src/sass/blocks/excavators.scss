@@ -508,6 +508,17 @@
 }
 
 @media (max-width: $xs) {
+  .excavators__details {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .excavators__list {
+    margin-bottom: 105px;
+  }
+
   .excavators__item {
     height: 85px;
 
@@ -516,12 +527,31 @@
     }
   }
 
+  .excavators__excavator-title {
+    flex-basis: 100%;
+    max-width: 100%;
+    font-size: 18px;
+  }
+
+  .excavators__availability-wrapper {
+    position: relative;
+    top: -80px;
+    flex-basis: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+
   .excavators__big-img {
     left: 0;
-    bottom: 80px;
+    bottom: 125px;
     width: 100%;
     height: 250px;
     transform: none;
+  }
+
+  .excavators__excavator-props {
+    position: relative;
+    top: -80px;
   }
 
   .excavators__prop {
@@ -530,9 +560,20 @@
     }
   }
 
+  .excavators__prop-value {
+    margin-bottom: 2px;
+    font-size: 18px;
+  }
+
+  .excavators__prop-name {
+    font-size: 12px;
+  }
+
   .excavators__trigger-wrapper {
     position: static;
+    align-self: flex-end;
     justify-content: space-between;
+    margin-bottom: 60px;
   }
 
   .excavators__trigger-wrapper .btn {
@@ -549,5 +590,36 @@
   .excavators__list {
     align-self: flex-start;
     margin-top: 10px;
+  }
+
+  .excavators__excavator-title {
+    font-size: 16px;
+  }
+
+  .excavators__big-img {
+    bottom: 165px;
+    background-position: center bottom;
+  }
+
+  .excavators__prop-value {
+    font-size: 16px;
+  }
+
+  .excavators__prop-name {
+    font-size: 10px;
+  }
+
+  .excavators__excavator-availability {
+    width: 90px;
+    min-width: 90px;
+    padding: 6px;
+  }
+
+  .excavators__excavator-status {
+    font-size: 9px;
+  }
+
+  .excavators__trigger-wrapper {
+    margin-bottom: 90px;
   }
 }

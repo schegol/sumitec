@@ -11,9 +11,12 @@ $(document).ready(function() {
 
   //модалки:
   const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger');
-  const modalOverlay = $('.landing-modal');
+  const modalOverlay = $('.landing-modal:not(.landing-modal--mobile-excavators)');
   const modalForm = $('.landing-modal__form');
+  const modalOverlayExcavators = $('.landing-modal--mobile-excavators');
+  const modalFormExcavators = $('.landing-modal--mobile-excavators .landing-modal__form--excavators');
   const modalCloseBtn = $('.landing-modal__close-btn');
+  const modalExcavatorsCloseBtn = $('.landing-modal--mobile-excavators .landing-modal__form--excavators .landing-modal__back-btn');
   const modalPhoneField = $('.landing-modal__form-field--phone');
   const scrollableWrapper = $('.excavators__controls');
 
@@ -26,7 +29,9 @@ $(document).ready(function() {
       } else {
         if ($(e.target).hasClass('excavators__modal-trigger')) {
           e.preventDefault();
-          scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
+          // scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
+          modalOverlayExcavators.addClass('landing-modal--open').addClass('landing-modal--animated');
+          $('body').addClass('modal-open').addClass('modal-open--animated');
         } else {
           e.preventDefault();
           modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
@@ -38,32 +43,36 @@ $(document).ready(function() {
 
   openModal(modalTriggers);
 
-  var closeModal = function () {
-    if (modalOverlay.hasClass('landing-modal--animated')) {
-      modalOverlay.removeClass('landing-modal--animated').addClass('landing-modal--animated-backwards');
+  var closeModal = function (overlay) {
+    if (overlay.hasClass('landing-modal--animated')) {
+      overlay.removeClass('landing-modal--animated').addClass('landing-modal--animated-backwards');
       setTimeout(function () {
-        modalOverlay.removeClass('landing-modal--open').removeClass('landing-modal--animated-backwards');
+        overlay.removeClass('landing-modal--open').removeClass('landing-modal--animated-backwards');
       }, 500);
       $('body').removeClass('modal-open').removeClass('modal-open--animated');
     } else {
-      modalOverlay.removeClass('landing-modal--open');
+      overlay.removeClass('landing-modal--open');
       $('body').removeClass('modal-open');
     };
   };
 
   modalCloseBtn.click(function () {
-    closeModal();
+    closeModal(modalOverlay);
+  });
+
+  modalExcavatorsCloseBtn.click(function () {
+    closeModal(modalOverlayExcavators);
   });
 
   modalOverlay.click(function (e) {
     if (!modalForm.is(e.target) && modalForm.has(e.target).length === 0) {
-      closeModal();
+      closeModal(modalOverlay);
     };
   });
 
   $(document).keydown(function(e) {
     if (e.keyCode == 27) {
-        closeModal();
+        closeModal(modalOverlay);
     };
   });
 
