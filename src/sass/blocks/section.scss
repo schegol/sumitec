@@ -36,6 +36,12 @@
     height: 4px;
     background-color: $main-color-light;
   }
+
+  &--quiz {
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .section__subheading {

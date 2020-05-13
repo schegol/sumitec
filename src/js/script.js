@@ -30,7 +30,7 @@ $(document).ready(function() {
         } else {
           e.preventDefault();
           modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
-          $('body').addClass('modal-open');
+          $('body').addClass('modal-open').addClass('modal-open--animated');
         };
       };
     });
@@ -43,8 +43,8 @@ $(document).ready(function() {
       modalOverlay.removeClass('landing-modal--animated').addClass('landing-modal--animated-backwards');
       setTimeout(function () {
         modalOverlay.removeClass('landing-modal--open').removeClass('landing-modal--animated-backwards');
-        $('body').removeClass('modal-open');
       }, 500);
+      $('body').removeClass('modal-open').removeClass('modal-open--animated');
     } else {
       modalOverlay.removeClass('landing-modal--open');
       $('body').removeClass('modal-open');
@@ -88,6 +88,7 @@ $(document).ready(function() {
   const excavatorDetails = $('.excavators__details-wrapper');
   const excavatorBackBtn = $('.excavators__back-btn');
   const formBackBtn = $('.landing-modal__back-btn');
+  const excavatorsHeading = $('.header__main-heading');
 
   excavatorToggles.each(function () {
     $(this).click(function (e) {
@@ -116,6 +117,10 @@ $(document).ready(function() {
           });
         };
       } else {
+        if ($(window).width() <= 575) {
+          excavatorsHeading.addClass('header__main-heading--moving');
+        };
+
         excavatorToggles.removeClass('excavators__item-link--active');
         $(this).addClass('excavators__item-link--active');
 
@@ -134,6 +139,10 @@ $(document).ready(function() {
 
   excavatorBackBtn.click(function () {
     scrollableWrapper.removeClass('excavators__controls--center');
+
+    if ($(window).width() <= 575) {
+      excavatorsHeading.removeClass('header__main-heading--moving');
+    };
   });
 
   formBackBtn.click(function () {
@@ -148,9 +157,20 @@ $(document).ready(function() {
   const quizSubmitBtn = $('.quiz__navigation .quiz__navigation-btn--submit');
   const quizRadios = $('.quiz__radio-input');
 
+  quizNextBtn.click(function () {
+    let currentSlide = quiz.slick('slickCurrentSlide');
+    if (quiz.find($('.slick-slide[data-slick-index=' + currentSlide + ']')).find('input').is(':checked')) {
+      quiz.slick('slickNext');
+    }
+  })
+  quizPrevBtn.click(function () {
+    quiz.slick('slickPrev');
+  })
+
   quiz.slick({
-    prevArrow: quizPrevBtn,
-    nextArrow: quizNextBtn,
+    /*prevArrow: quizPrevBtn,
+    nextArrow: quizNextBtn,*/
+    arrows: false,
     autoPlay: false,
     // adaptiveHeight: true,
     dots: true,
@@ -305,5 +325,13 @@ $(document).ready(function() {
     arrows: true,
     smallBtn: true,
     toolbar: 'auto'
+  });
+
+  $(window).resize(function () {
+    if ($(window).width() >= 768) {
+      if ($('body').hasClass('modal-open--animated')) {
+        // $('body').css('left', 0);
+      };
+    };
   });
 });

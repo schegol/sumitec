@@ -71,6 +71,10 @@
   line-height: normal;
 }
 
+.excavators__availability-wrapper {
+  @include dflex(nowrap, row, space-between, flex-start);
+}
+
 .excavators__excavator-availability {
   @include dflex(nowrap, row, center, center);
   margin-bottom: 18px;
@@ -117,6 +121,35 @@
 .excavators__excavator-availability--unavailable .excavators__excavator-status--available,
 .excavators__excavator-availability--available .excavators__excavator-status--unavailable {
   display: none;
+}
+
+.excavators__manual-download {
+  position: relative;
+  display: inline-block;
+  max-width: 130px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  padding-right: 30px;
+  color: #fff;
+  font-size: 13px;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &::after {
+    @include abs-pseudo;
+    top: 50%;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background-image: url("../img/icon-download.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translateY(-50%);
+  }
 }
 
 .excavators__modal-trigger {
@@ -170,6 +203,14 @@
 
 .excavators__back-btn {
   display: none;
+}
+
+.excavators__note {
+  @include reset;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #fff;
+  // font-style: italic;
 }
 
 @media (max-width: $xl) {
@@ -339,12 +380,17 @@
   .excavators__item-link {
     padding-right: 10px;
   }
+
+  .excavators__note {
+    position: relative;
+    top: 20px;
+  }
 }
 
 @media (max-width: $sm) {
-  .excavators {
-    overflow-x: hidden;
-  }
+  // .excavators {
+  //   overflow-x: hidden;
+  // }
 
   .excavators__controls {
     @include transition(left);
@@ -451,14 +497,30 @@
   .excavators__back-btn {
     display: flex;
   }
+
+  .excavators__note {
+    display: none;
+  }
+
+  .excavators__manual-download {
+    display: none;
+  }
 }
 
 @media (max-width: $xs) {
+  .excavators__item {
+    height: 85px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
   .excavators__big-img {
     left: 0;
-    bottom: 75px;
+    bottom: 80px;
     width: 100%;
-    height: 275px;
+    height: 250px;
     transform: none;
   }
 
@@ -469,6 +531,7 @@
   }
 
   .excavators__trigger-wrapper {
+    position: static;
     justify-content: space-between;
   }
 
@@ -479,5 +542,12 @@
     &:not(:last-child) {
       margin-right: 0;
     }
+  }
+}
+
+@media (max-width: $xxs) {
+  .excavators__list {
+    align-self: flex-start;
+    margin-top: 10px;
   }
 }

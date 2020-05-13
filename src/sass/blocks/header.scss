@@ -26,6 +26,10 @@
   &--accent {
     font-weight: 900;
   }
+
+  &--smaller {
+    display: none;
+  }
 }
 
 .header__scroll-down {
@@ -101,9 +105,10 @@
 
 @media (max-width: $sm) {
   .header {
-    min-height: 0
+    min-height: 0;
+    overflow: hidden;
   }
-  
+
   .header__main-heading {
     max-width: 100%;
     margin-top: 50px;
@@ -114,8 +119,33 @@
 }
 
 @media (max-width: $xs) {
+  .header {
+    background-image: url("../img/header-img-bg-xs.jpg");
+  }
+
+  .header__wrapper {
+    padding-top: 30px;
+  }
+
   .header__main-heading {
+    @include transition(left);
+    position: relative;
+    left: 0;
+    margin-top: 35px;
     font-size: 16px;
     line-height: 24px;
+
+    &--bigger {
+      display: none;
+    }
+
+    &--smaller {
+      display: inline;
+      margin-top: 0;
+    }
+
+    &--moving {
+      left: calc(-100% - 10px);
+    }
   }
 }

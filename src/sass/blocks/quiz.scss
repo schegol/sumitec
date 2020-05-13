@@ -80,11 +80,13 @@
 .quiz .slick-dots {
   @include dflex(nowrap, row, space-between, stretch);
   @include reset;
-  width: 262px;
-  height: 10px;
+  position: absolute;
+  top: -68px;
+  width: 485px;
+  height: 4px;
   margin: 15px 0;
-  border: 1px solid rgba(0,0,0,.5);
-  border-radius: 5px;
+  // border: 1px solid rgba(0,0,0,.5);
+  // border-radius: 5px;
   overflow: hidden;
 }
 
@@ -115,7 +117,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,.03);
-  border: 1px solid lightgrey;
+  // border: 1px solid lightgrey;
 
   &:hover,
   &:focus {
@@ -142,7 +144,10 @@
   }
 
   .quiz .slick-dots {
-    margin: 15px auto;
+    // margin: 15px auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
   }
 }
 
@@ -167,5 +172,9 @@
     &--prev {
       margin-right: 0;
     }
+  }
+
+  .quiz .slick-dots {
+    display: none;
   }
 }

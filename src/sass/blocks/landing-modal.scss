@@ -201,26 +201,28 @@
     }
 
     &--animated {
-      animation-name: modalOverlayAnimation;
-      animation-duration: .5s;
-      animation-fill-mode: forwards;
-      animation-timing-function: linear;
-      animation-direction: normal;
+      background-color: transparent;
+      // animation-name: modalOverlayAnimation;
+      // animation-duration: .5s;
+      // animation-fill-mode: forwards;
+      // animation-timing-function: linear;
+      // animation-direction: normal;
 
       & .landing-modal__form {
         animation-name: modalFormAnimation;
         animation-duration: .5s;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-out;
+        animation-timing-function: linear;
         animation-direction: normal;
       }
     }
 
     &--animated-backwards {
-      animation-name: modalOverlayAnimationBackwards;
-      animation-duration: .5s;
-      animation-fill-mode: forwards;
-      animation-timing-function: linear;
+      background-color: transparent;
+      // animation-name: modalOverlayAnimationBackwards;
+      // animation-duration: .5s;
+      // animation-fill-mode: forwards;
+      // animation-timing-function: linear;
 
       & .landing-modal__form {
         animation-name: modalFormAnimationBackwards;
