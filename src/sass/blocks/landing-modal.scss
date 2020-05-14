@@ -167,10 +167,20 @@
   font-style: italic;
 }
 
-.landing-modal__sumbit {
-  flex-shrink: 0;
+.landing-modal__form-footer .btn {
+  width: auto;
+  flex-basis: 200px;
+  flex-grow: 0;
+  flex-shrink: 1;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.landing-modal__form-footer {
+  @include dflex(nowrap, row, center, center);
   width: 100%;
-  max-width: 300px;
 }
 
 @media (max-width: $lg) {
@@ -231,6 +241,15 @@
         animation-timing-function: linear;
       }
     }
+
+    &:not(.landing-modal--quiz) {
+      & .landing-modal__form {
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        box-shadow: none;
+      }
+    }
   }
 
   .landing-modal__form {
@@ -249,22 +268,6 @@
   .landing-modal__subheading {
     font-size: 14px;
     line-height: 20px;
-  }
-
-  .landing-modal__form-footer {
-    @include dflex(nowrap, row, center, center);
-    width: 100%;
-  }
-
-  .landing-modal__form-footer .btn {
-    width: auto;
-    flex-basis: 200px;
-    flex-grow: 0;
-    flex-shrink: 1;
-
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
   }
 }
 

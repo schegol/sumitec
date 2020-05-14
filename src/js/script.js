@@ -10,13 +10,11 @@ $(document).ready(function() {
   });
 
   //модалки:
-  const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger');
-  const modalOverlay = $('.landing-modal:not(.landing-modal--mobile-excavators)');
+  const modalTriggers = $('.section__btn, .company-info__modal-trigger, .excavators__modal-trigger, .quiz__navigation-btn--submit');
+  const modalOverlay = $('.landing-modal');
   const modalForm = $('.landing-modal__form');
-  const modalOverlayExcavators = $('.landing-modal--mobile-excavators');
-  const modalFormExcavators = $('.landing-modal--mobile-excavators .landing-modal__form--excavators');
   const modalCloseBtn = $('.landing-modal__close-btn');
-  const modalExcavatorsCloseBtn = $('.landing-modal--mobile-excavators .landing-modal__form--excavators .landing-modal__back-btn');
+  const modalBackBtn = $('.landing-modal__back-btn');
   const modalPhoneField = $('.landing-modal__form-field--phone');
   const scrollableWrapper = $('.excavators__controls');
 
@@ -27,15 +25,19 @@ $(document).ready(function() {
         modalOverlay.addClass('landing-modal--open');
         $('body').addClass('modal-open');
       } else {
-        if ($(e.target).hasClass('excavators__modal-trigger')) {
-          e.preventDefault();
-          // scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
-          modalOverlayExcavators.addClass('landing-modal--open').addClass('landing-modal--animated');
-          $('body').addClass('modal-open').addClass('modal-open--animated');
-        } else {
+        // if ($(e.target).hasClass('excavators__modal-trigger')) {
+        //   e.preventDefault();
+        //   // scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
+        //   modalOverlayExcavators.addClass('landing-modal--open').addClass('landing-modal--animated');
+        //   $('body').addClass('modal-open').addClass('modal-open--animated');
+        if (!$(e.target).hasClass('quiz__navigation-btn--submit')) {
           e.preventDefault();
           modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
           $('body').addClass('modal-open').addClass('modal-open--animated');
+        } else {
+          e.preventDefault();
+          modalOverlay.addClass('landing-modal--open').addClass('landing-modal--quiz');
+          $('body').addClass('modal-open');
         };
       };
     });
@@ -43,36 +45,36 @@ $(document).ready(function() {
 
   openModal(modalTriggers);
 
-  var closeModal = function (overlay) {
-    if (overlay.hasClass('landing-modal--animated')) {
-      overlay.removeClass('landing-modal--animated').addClass('landing-modal--animated-backwards');
+  var closeModal = function () {
+    if (modalOverlay.hasClass('landing-modal--animated')) {
+      modalOverlay.removeClass('landing-modal--animated').addClass('landing-modal--animated-backwards');
       setTimeout(function () {
-        overlay.removeClass('landing-modal--open').removeClass('landing-modal--animated-backwards');
+        modalOverlay.removeClass('landing-modal--open').removeClass('landing-modal--animated-backwards');
       }, 500);
       $('body').removeClass('modal-open').removeClass('modal-open--animated');
     } else {
-      overlay.removeClass('landing-modal--open');
+      modalOverlay.removeClass('landing-modal--open').removeClass('landing-modal--quiz');
       $('body').removeClass('modal-open');
     };
   };
 
   modalCloseBtn.click(function () {
-    closeModal(modalOverlay);
+    closeModal();
   });
 
-  modalExcavatorsCloseBtn.click(function () {
-    closeModal(modalOverlayExcavators);
+  modalBackBtn.click(function () {
+    closeModal();
   });
 
   modalOverlay.click(function (e) {
     if (!modalForm.is(e.target) && modalForm.has(e.target).length === 0) {
-      closeModal(modalOverlay);
+      closeModal();
     };
   });
 
   $(document).keydown(function(e) {
     if (e.keyCode == 27) {
-        closeModal(modalOverlay);
+        closeModal();
     };
   });
 
