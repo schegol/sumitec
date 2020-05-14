@@ -437,6 +437,7 @@
     height: 300px;
     background-position: center;
     transform: translateX(-50%);
+    z-index: 0;
   }
 
   .excavators__excavator-title {
@@ -448,10 +449,12 @@
     position: static;
     flex-basis: 100%;
     margin-left: 164px;
+    z-index: 1;
   }
 
   .excavators__excavator-props {
     flex-basis: auto;
+    z-index: 1;
   }
 
   .excavators__list {
@@ -516,6 +519,8 @@
   }
 
   .excavators__list {
+    align-self: flex-start;
+    margin-top: 20px;
     margin-bottom: 105px;
   }
 
@@ -530,12 +535,14 @@
   .excavators__excavator-title {
     flex-basis: 100%;
     max-width: 100%;
+    margin-top: 20px;
+    margin-bottom: 0;
     font-size: 18px;
   }
 
   .excavators__availability-wrapper {
     position: relative;
-    top: -80px;
+    top: -95px;
     flex-basis: auto;
     margin-bottom: 0;
     margin-left: auto;
@@ -543,20 +550,21 @@
 
   .excavators__big-img {
     left: 0;
-    bottom: 125px;
+    bottom: 215px;
     width: 100%;
-    height: 250px;
+    height: 240px;
     transform: none;
   }
 
   .excavators__excavator-props {
     position: relative;
-    top: -80px;
+    top: -95px;
+    margin: 0;
   }
 
   .excavators__prop {
     &:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
   }
 
@@ -570,15 +578,17 @@
   }
 
   .excavators__trigger-wrapper {
-    position: static;
+    position: relative;
+    bottom: 45px;
     align-self: flex-end;
     justify-content: space-between;
-    margin-bottom: 60px;
+    margin-bottom: 110px;
   }
 
   .excavators__trigger-wrapper .btn {
     flex-basis: calc(50% - 5px);
     padding: 15px 10px;
+    height: 45px;
 
     &:not(:last-child) {
       margin-right: 0;
@@ -587,19 +597,18 @@
 }
 
 @media (max-width: $xxs) {
-  .excavators__list {
-    align-self: flex-start;
-    margin-top: 10px;
-  }
-
   .excavators__excavator-title {
     margin-bottom: 0;
     font-size: 16px;
   }
 
   .excavators__big-img {
-    bottom: 175px;
+    bottom: 200px;
     background-position: center bottom;
+  }
+
+  .excavators__excavator-props {
+    top: -80px;
   }
 
   .excavators__prop-value {
@@ -608,6 +617,10 @@
 
   .excavators__prop-name {
     font-size: 10px;
+  }
+
+  .excavators__availability-wrapper {
+    top: -80px;
   }
 
   .excavators__excavator-availability {

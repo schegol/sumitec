@@ -100,6 +100,10 @@
   &::before {
     display: none;
   }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 
 .quiz .slick-active .quiz__status-dot,
@@ -173,8 +177,8 @@
       margin-right: 0;
     }
   }
-
-  .quiz .slick-dots {
-    display: none;
-  }
+  //
+  // .quiz .slick-dots {
+  //   display: none;
+  // }
 }

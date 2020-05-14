@@ -120,11 +120,12 @@
 
 @media (max-width: $xs) {
   .header {
+    max-height: 100vh;
     background-image: url("../img/header-img-bg-xs.jpg");
   }
 
   .header__wrapper {
-    padding-top: 25px;
+    padding-top: 10px;
   }
 
   .header__main-heading {
@@ -132,7 +133,7 @@
     position: relative;
     left: 0;
     margin-top: 35px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     font-size: 16px;
     line-height: 24px;
 

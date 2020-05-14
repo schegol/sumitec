@@ -30,15 +30,15 @@ $(document).ready(function() {
         //   // scrollableWrapper.removeClass('excavators__controls--center').addClass('excavators__controls--right');
         //   modalOverlayExcavators.addClass('landing-modal--open').addClass('landing-modal--animated');
         //   $('body').addClass('modal-open').addClass('modal-open--animated');
-        if (!$(e.target).hasClass('quiz__navigation-btn--submit')) {
+        // if (!$(e.target).hasClass('quiz__navigation-btn--submit')) {
+        //   e.preventDefault();
+        //   modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
+        //   $('body').addClass('modal-open').addClass('modal-open--animated');
+        // } else {
           e.preventDefault();
           modalOverlay.addClass('landing-modal--open').addClass('landing-modal--animated');
           $('body').addClass('modal-open').addClass('modal-open--animated');
-        } else {
-          e.preventDefault();
-          modalOverlay.addClass('landing-modal--open').addClass('landing-modal--quiz');
-          $('body').addClass('modal-open');
-        };
+        // };
       };
     });
   };
@@ -214,6 +214,7 @@ $(document).ready(function() {
   const quizDot = $('.quiz__status-dot');
   quizDot.click(function (e) {
     e.preventDefault();
+    return false;
   });
 
   quiz.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
